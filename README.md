@@ -1,15 +1,26 @@
 # image_crud_with_authentication
 
 Steps:
+
 Step 1: Clone this repo : git clone https://github.com/wagishsharma/image_crud_with_authentication.git
+
 Step 2: Change $config['base_url'] from 'http://localhost/admin/' to 'http://localhost/[folder name]]/' in  application/config/config.php.
+
 Stgep 3: Change databse settings according to your system in application/config/database.php.
+
 Step 4: Make a database named 'test' . 
+
 Step 5: Run test.sql 
 
 Login credentials for admin 
-id: admin@admin.com 
-password : password
+
+Id: admin@admin.com
+Password : password
+
+Login credentials for normal user
+
+Id: wagish@wagish.com
+Password: 123456
 
 Login Page
 
