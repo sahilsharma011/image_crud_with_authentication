@@ -11,23 +11,21 @@ Login credentials for admin
 id: admin@admin.com 
 password : password
 
-
-Home Page
-
-![g1](https://user-images.githubusercontent.com/16692346/32980494-4cda6d50-cc8d-11e7-995c-29e867e0b732.PNG)
-
 Login Page
 
-![g2](https://user-images.githubusercontent.com/16692346/32980495-4d4a3022-cc8d-11e7-9115-1a4be16dc54b.PNG)
+![g1](https://user-images.githubusercontent.com/16692346/32981398-6c44559e-cc9b-11e7-8c34-213a33224cf2.PNG)
 
-Admin home page
+Admin Page
+![g2](https://user-images.githubusercontent.com/16692346/32981399-6cb35aac-cc9b-11e7-90fa-c117f3ed35e8.PNG)
 
-![g3](https://user-images.githubusercontent.com/16692346/32980496-4db72650-cc8d-11e7-8652-aca24995cf87.PNG)
+Upload/edit/delete photos 
+![g3](https://user-images.githubusercontent.com/16692346/32981400-6d21c1ea-cc9b-11e7-9ab3-5f43e1269ca8.PNG)
 
-Upload/edit/delete photos only for admin
+View photos
+![g4](https://user-images.githubusercontent.com/16692346/32981401-6d8fb9e8-cc9b-11e7-9048-fe82d766b121.PNG)
 
-![g4](https://user-images.githubusercontent.com/16692346/32980497-4df5b528-cc8d-11e7-9d63-7fc3112979d4.PNG)
+Photo preview for admin
+![g5](https://user-images.githubusercontent.com/16692346/32981402-6dceb8d2-cc9b-11e7-80a7-05f9a15b8bfc.PNG)
 
-photo preview only for admin
-
-![g6](https://user-images.githubusercontent.com/16692346/32980498-4e644e34-cc8d-11e7-963d-d9195f8aac1d.PNG)
+Photo Banner for all users or guests
+![g6](https://user-images.githubusercontent.com/16692346/32981403-6e0ecc06-cc9b-11e7-8a77-5ec40d06bcb4.PNG)
