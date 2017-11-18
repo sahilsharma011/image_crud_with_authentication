@@ -17,10 +17,10 @@ Admin home page
 
 ![g3](https://user-images.githubusercontent.com/16692346/32980496-4db72650-cc8d-11e7-8652-aca24995cf87.PNG)
 
-Upload/edit/delete photos for only
+Upload/edit/delete photos only for admin
 
 ![g4](https://user-images.githubusercontent.com/16692346/32980497-4df5b528-cc8d-11e7-9d63-7fc3112979d4.PNG)
 
-photo preview for only admin
+photo preview only for admin
 
 ![g6](https://user-images.githubusercontent.com/16692346/32980498-4e644e34-cc8d-11e7-963d-d9195f8aac1d.PNG)
