@@ -6,7 +6,7 @@ Step 1: Clone this repo : git clone https://github.com/wagishsharma/image_crud_w
 
 Step 2: Change $config['base_url'] from 'http://localhost/admin/' to 'http://localhost/[folder name]]/' in  application/config/config.php.
 
-Stgep 3: Change databse settings according to your system in application/config/database.php.
+Stgep 3: Change database settings according to your system in application/config/database.php.
 
 Step 4: Make a database named 'test' . 
 
@@ -20,7 +20,7 @@ Password : password
 Login credentials for normal user
 
 Id: wagish@wagish.com
-Password: 123456
+Password: 12345678
 
 Login Page
 
