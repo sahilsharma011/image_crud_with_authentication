@@ -15,6 +15,8 @@ class Images extends CI_Controller
 
         $this->load->library('image_CRUD');
         $this->load->library('ion_auth');
+        $this->load->library('upload');
+        
     }
 
     function _example_output($output = null)
@@ -89,5 +91,35 @@ class Images extends CI_Controller
     function aroundMe()
     {
         $this->load->view('aroundme.php');
+    }
+
+    function upload_file() {
+ 
+        //upload file
+        $config['upload_path'] = 'assets/uploads/';
+        $config['allowed_types'] = '*';
+        $config['max_filename'] = '255';
+        $config['encrypt_name'] = TRUE;
+        $config['max_size'] = '1024'; //1 MB
+
+ 
+        if (isset($_FILES['file']['name'])) {
+            if (0 < $_FILES['file']['error']) {
+                echo 'Error during file upload' . $_FILES['file']['error'];
+            } else {
+                if (file_exists('assets/uploads/' . $_FILES['file']['name'])) {
+                    echo 'File already exists : ' . $_FILES['file']['name'];
+                } else {
+                    $this->upload->initialize($config);
+                    if (!$this->upload->do_upload('file')) {
+                        echo $this->upload->display_errors();
+                    } else {
+                        echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+                    }
+                }
+            }
+        } else {
+            echo 'Please choose a file';
+        }
     }
 }
