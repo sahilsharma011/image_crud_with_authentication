@@ -69,8 +69,10 @@ function createUploader() {
             long: coords.coords.longitude
         });
     },function (error) {
-        geoplugin_latitude()
-        geoplugin_longitude()
+        uploader.setParams({
+            lat: geoplugin_latitude(),
+            long: geoplugin_longitude()
+        });
     });
 
 }

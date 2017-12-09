@@ -90,4 +90,25 @@ class Images extends CI_Controller
     {
         $this->load->view('aroundme.php');
     }
+
+    function nearbyImages()
+    {
+        $this->db->select('images.id,images.user_id,images.name,images.latitude,images.longitude,users.username');
+        $this->db->from('images');
+        $this->db->join('users', 'users.id = images.user_id');
+        $this->db->where('images.latitude >', $_GET['lat1']);
+        $this->db->where('images.latitude <', $_GET['lat2']);
+        $this->db->where('images.longitude >', $_GET['long1']);
+        $this->db->where('images.longitude <', $_GET['long2']);
+        $this->db->order_by('images.id', 'RANDOM');
+        $this->db->limit(10);
+        $query = $this->db->get();
+        $images = [];
+        foreach ($query->result() as $image)
+        {
+            array_push($images,$image);
+        }
+
+        echo json_encode($images);
+    }
 }

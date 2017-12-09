@@ -369,7 +369,7 @@ class image_CRUD {
     	foreach($results as $num => $row)
     	{
 			if (!file_exists($this->image_path.'/'.$this->thumbnail_prefix.$row->{$this->name_field})) {
-				$this->_create_thumbnail($this->image_path.'/'.$row->{$this->name_field}, $this->image_path.'/'.$this->thumbnail_prefix.$row->{$this->name_field});
+				$this->_create_thumbnail($this->image_path.'/'.$row->{$this->name_field}, $this->image_path.'/'.$this->thumbnail_prefix.$row->{$this->name_field},$this->image_path.'/'.'pin-sized'.$this->thumbnail_prefix.$row->{$this->name_field});
 			}
 
     		$results[$num]->image_url = base_url().$this->image_path.'/'.$row->{$this->name_field};
@@ -390,12 +390,16 @@ class image_CRUD {
 		return preg_replace(array_keys($translit_characters), array_values($translit_characters), $str_i);
 	}
 
-	protected function _create_thumbnail($image_path, $thumbnail_path)
+	protected function _create_thumbnail($image_path, $thumbnail_path, $pin_sized_path)
 	{
 		$this->image_moo
 			->load($image_path)
 			->resize_crop(90,60)
 			->save($thumbnail_path,true);
+        $this->image_moo
+            ->load($image_path)
+            ->resize_crop(45,30)
+            ->save($pin_sized_path,true);
 	}
 
 	protected function getState()
@@ -526,7 +530,7 @@ class image_CRUD {
 					$file_name = $this->_upload_file( $this->image_path);
 					
 					if ($file_name !== false) {
-						$this->_create_thumbnail( $this->image_path.'/'.$file_name , $this->image_path.'/'.$this->thumbnail_prefix.$file_name );
+						$this->_create_thumbnail( $this->image_path.'/'.$file_name , $this->image_path.'/'.$this->thumbnail_prefix.$file_name,$this->image_path.'/'.'pin-sized'.$this->thumbnail_prefix.$file_name );
 
 						$this->_insert_table($file_name, $state_info->relation_value, ['latitude'=>$_GET['lat'],'longitude'=>$_GET['long']]);
 						
