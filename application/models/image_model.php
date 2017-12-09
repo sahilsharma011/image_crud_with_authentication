@@ -8,7 +8,7 @@ class Image_model extends CI_Model {
 
 	public function getImages()
         {
-            $query = $this->db->get('bannerImage');
+            $query = $this->db->get('images');
 		    return $query->result();
         }
 }

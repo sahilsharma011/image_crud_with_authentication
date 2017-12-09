@@ -324,11 +324,13 @@ class image_CRUD {
 		$this->ci->db->update($this->table_name, array($this->url_field => $value), array($this->primary_key => $primary_key));
     }
 
-    protected function _insert_table($file_name, $relation_id = null)
+    protected function _insert_table($file_name, $relation_id = null, $extraParams = [])
     {
     	$insert = array($this->name_field => $file_name);
     	if(!empty($relation_id))
     		$insert[$this->relation_field] = $relation_id;
+    	if(!empty($extraParams))
+    	    $insert = array_merge($insert,$extraParams);
     	$insert[$this->url_field] = base_url();
     	$this->ci->db->insert($this->table_name, $insert);
     }
@@ -525,7 +527,8 @@ class image_CRUD {
 					
 					if ($file_name !== false) {
 						$this->_create_thumbnail( $this->image_path.'/'.$file_name , $this->image_path.'/'.$this->thumbnail_prefix.$file_name );
-						$this->_insert_table($file_name, $state_info->relation_value);
+
+						$this->_insert_table($file_name, $state_info->relation_value, ['latitude'=>$_GET['lat'],'longitude'=>$_GET['long']]);
 						
 						$result = true;
 					} else {

@@ -10,7 +10,8 @@
 <?php foreach($js_files as $file): ?>
 	<script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
-<style type='text/css'>
+    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+    <style type='text/css'>
 	body
 	{
 		font-family: Arial;
@@ -31,7 +32,8 @@
 <body>
 	<?php $this->load->view('template/nav.php'); ?>
 	<div>
-		
+        <?php $this->load->library('session'); ?>
+        <input type="hidden" value="<?php echo $this->session->userdata['user_id']?>" name="user_id">
 		<a href='<?php echo site_url('images/imageWithTitle')?>'>Upload photos</a> | 
 		<a href='<?php echo site_url('images/gallery')?>'>View photos</a>
 	</div>

@@ -46,34 +46,33 @@ function loadPhotoGallery(){
 }
 
 function createUploader() {
-	var uploader = new qq.FineUploader({
-		element: document.getElementById('fine-uploader'),
-		request: {
-			 endpoint: '<?php echo $upload_url?>'
-		},
-		validation: {
-			 allowedExtensions: ['jpeg', 'jpg', 'png', 'gif']
-		},		
-		callbacks: {
-			 onComplete: function(id, fileName, responseJSON) {
-				 loadPhotoGallery();
-			 }
-		},
-		debug: true,
-		/*template: '<div class="qq-uploader">' +
-			'<div class="qq-upload-drop-area"><span><?php echo $this->l("upload-drop-area");?></span></div>' +
-			'<div class="qq-upload-button"><?php echo $this->l("upload_button");?></div>' +
-			'<ul class="qq-upload-list"></ul>' +
-			'</div>',
-		fileTemplate: '<li>' +
-			'<span class="qq-upload-file"></span>' +
-			'<span class="qq-upload-spinner"></span>' +
-			'<span class="qq-upload-size"></span>' +
-			'<a class="qq-upload-cancel" href="#"><?php echo $this->l("upload-cancel");?></a>' +
-			'<span class="qq-upload-failed-text"><?php echo $this->l("upload-failed");?></span>' +
-			'</li>',
-*/
-	});
+    var coords = null
+    var uploader = new qq.FineUploader({
+        element: document.getElementById('fine-uploader'),
+        request: {
+            endpoint: '<?php echo $upload_url?>/'+document.getElementsByName('user_id')[0].value
+        },
+        validation: {
+            allowedExtensions: ['jpeg', 'jpg', 'png', 'gif']
+        },
+        callbacks: {
+            onComplete: function (id, fileName, responseJSON) {
+                loadPhotoGallery();
+            }
+        },
+        debug: true,
+    });
+    navigator.geolocation.getCurrentPosition(function(position){
+        coords = position
+        uploader.setParams({
+            lat: coords.coords.latitude,
+            long: coords.coords.longitude
+        });
+    },function (error) {
+        geoplugin_latitude()
+        geoplugin_longitude()
+    });
+
 }
 
 function saveTitle(data_id, data_title)
