@@ -10,11 +10,10 @@
 <?php foreach($js_files as $file): ?>
 	<script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
-    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <style type='text/css'>
 	body
 	{
-		font-family: Arial;
+        font-family: Arial, sans-serif;
 		font-size: 14px;
 	}
 	a {
