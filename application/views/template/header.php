@@ -46,10 +46,10 @@
 				data: form_data,
 				type: 'post',
 				success: function (response) {
-					$('#msg').html(response); 
+					location.reload()
 				},
 				error: function (response) {
-					$('#msg').html(response); 
+                    location.reload()
 				}
 			});
 		}
