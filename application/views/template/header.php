@@ -28,11 +28,11 @@
 			});
 		});
 		function submitForm(position){
-			console.log(position);
+			//console.log(position);
 			var file_data = $('#file').prop('files')[0];
 			var form_data = new FormData();
 			var description = $('#description').val();
-			console.log(description);
+			//console.log(description);
 			form_data.append('file', file_data);
 			form_data.append('lat', position.lat);
 			form_data.append('long', position.long);
