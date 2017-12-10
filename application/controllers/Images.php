@@ -62,8 +62,8 @@ class Images extends CI_Controller
             }
 
             $image_crud->set_table('images')
-                ->set_ordering_field('priority')
-                ->set_image_path('assets/uploads');
+            ->set_ordering_field('priority')
+            ->set_image_path('assets/uploads');
 
             $output = $image_crud->render();
 
@@ -81,7 +81,7 @@ class Images extends CI_Controller
         $image_crud->set_primary_key_field('id');
         $image_crud->set_name_field('name');
         $image_crud->set_table('images')
-            ->set_image_path('assets/uploads');
+        ->set_image_path('assets/uploads');
 
         $output = $image_crud->render();
 
@@ -95,15 +95,16 @@ class Images extends CI_Controller
 
 
     function upload_file() {
- 
+
         //upload file
         $config['upload_path'] = 'assets/uploads/';
         $config['allowed_types'] = '*';
         $config['max_filename'] = '255';
         $config['encrypt_name'] = TRUE;
         $config['max_size'] = '1024'; //1 MB
+        var_dump($_FILES);
+        var_dump($_GET);
 
- 
         if (isset($_FILES['file']['name'])) {
             if (0 < $_FILES['file']['error']) {
                 echo 'Error during file upload' . $_FILES['file']['error'];
@@ -115,13 +116,25 @@ class Images extends CI_Controller
                     if (!$this->upload->do_upload('file')) {
                         echo $this->upload->display_errors();
                     } else {
+
+                        $data = array(
+                            'url' => 'blast',
+                            'name' => $_FILES['file']['name'],
+                            'latitude' => $_FILES['file']['lat'],
+                            'longitude' => $_FILES['file']['long'],
+                            'description' =>$_FILES['file']['description']
+                        );
+
+                        $this->db->insert('images', $data);
                         echo 'File successfully uploaded : uploads/' . $_FILES['file']['name'];
+
                     }
                 }
             }
         } else {
             echo 'Please choose a file';
         }
+    }
 
     function nearbyImages()
     {

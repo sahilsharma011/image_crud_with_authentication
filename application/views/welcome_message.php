@@ -53,7 +53,7 @@
 
       <form id="form-new-post">
 
-        <textarea name="content" placeholder="Share what you think" style="width: 100%;overflow:hidden;"></textarea>
+        <textarea id = "description" name="description" placeholder="Share what you think" style="width: 100%;overflow:hidden;"></textarea>
         <hr>
         <div class="row">
           <div class="col-xs-4">

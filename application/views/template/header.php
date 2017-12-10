@@ -31,7 +31,12 @@
 			console.log(position);
 			var file_data = $('#file').prop('files')[0];
 			var form_data = new FormData();
+			var description = $('#description').val();
+			console.log(description);
 			form_data.append('file', file_data);
+			form_data.append('lat', position.lat);
+			form_data.append('long', position.long);
+			form_data.append('description', description);
 			console.log(file_data);
 			$.ajax({
 				url: <?php echo '"'.base_url().'"' ?> + 'images/upload_file', 
@@ -50,7 +55,7 @@
 			});
 		}
 	</script>
-}
+
 </head>
 <body>
 	<?php $this->load->view('template/nav.php'); ?>
