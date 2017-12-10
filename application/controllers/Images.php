@@ -118,8 +118,8 @@ class Images extends CI_Controller
                     } else {
 
                         $data = array(
-                            'url' => 'blast',
-                            'name' => $_FILES['file']['name'],
+                            'url' => base_url(),
+                            'name' => $this->upload->data()['file_name'],
                             'latitude' => $_POST['lat'],
                             'longitude' => $_POST['long'],
                             'description' =>$_POST['description']

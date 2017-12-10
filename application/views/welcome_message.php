@@ -84,8 +84,7 @@
     echo '<div class="card text-center" data-lat="' . $photo->latitude . '" data-long="' . $photo->longitude . '">
     <img style="display: block;width: 70%;  height: auto; margin-left:auto;margin-right:auto" class="card-img-top" src="assets/uploads/' . $photo->name . '" alt="Card image cap">
     <div class="card-block">
-    <h4 class="card-title">' . $photo->name . '</h4>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <h4 class="card-title">'.$photo->description.'</h4>
     <p class="card-text"><small class="text-muted"></small></p>
     </div>
     </div><div class = "gap"></div>';
@@ -107,7 +106,6 @@
                                 var city = results[i].address_components[0].short_name;
                                 var state = results[i].address_components[2].short_name;
                                 $(elem).find('.card-text > .text-muted').text('Posted from '+city + ", " + state)
-                                console.log(city + ", " + state);
                             }
                         }
                     }
