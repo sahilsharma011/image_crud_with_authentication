@@ -14,13 +14,13 @@
       <p>
         <span class="glyphicon glyphicon-user"></span>
         <?php echo lang('login_identity_label', 'identity');?>
-        <?php echo form_input($identity);?>
+        <?php echo form_input($identity,'','class="form-control"');?>
       </p>
 
       <p>
        <span class="glyphicon glyphicon-lock"></span>
        <?php echo lang('login_password_label', 'password');?>
-       <?php echo form_input($password);?>
+       <?php echo form_input($password,'','class="form-control"');?>
      </p>
 
      <p>
@@ -30,7 +30,7 @@
     </p>
 
 
-    <p><?php echo form_submit('submit', lang('login_submit_btn'),"class='btn btn-danger btn-lg'");?></p>
+    <p><?php echo form_submit('submit', lang('login_submit_btn'),"class='btn btn-primary btn-lg'");?></p>
 
     <?php echo form_close();?>
 
