@@ -106,7 +106,7 @@
                                     title: user.username,
                                     icon: <?php echo '"'.base_url().'assets/uploads/"'?>+'pin-sizedthumb__'+user.name,
                                     infoWindow: {
-                                        content: '<a href=/' + user.username + '>' + user.username + '</a>'
+                                        content: '<img height="350px" src='+<?php echo '"'.base_url().'assets/uploads/"'?>+user.name+'>'
                                     },
                                     click: function (e) {
                                         //  alert('You clicked in this marker');
