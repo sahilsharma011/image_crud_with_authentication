@@ -16,13 +16,14 @@ class Images extends CI_Controller
         $this->load->library('image_CRUD');
         $this->load->library('ion_auth');
         $this->load->library('upload');
-        
+        $this->load->library('Image_moo');
+
     }
 
     function _example_output($output = null)
     {
-        $this->load->view('photos.php', $output);
         $this->load->library('ion_auth');
+        $this->load->view('photos.php', $output);
     }
 
     function index()
@@ -116,13 +117,21 @@ class Images extends CI_Controller
                     if (!$this->upload->do_upload('file')) {
                         echo $this->upload->display_errors();
                     } else {
-
+                        $this->image_moo
+                            ->load($config['upload_path'].$this->upload->data()['file_name'])
+                            ->resize_crop(90,60)
+                            ->save($config['upload_path'].'thumb__'.$this->upload->data()['file_name'],true);
+                        $this->image_moo
+                            ->load($config['upload_path'].$this->upload->data()['file_name'])
+                            ->resize_crop(45,30)
+                            ->save($config['upload_path'].'pin-sizedthumb__'.$this->upload->data()['file_name'],true);
                         $data = array(
-                            'url' => 'blast',
-                            'name' => $_FILES['file']['name'],
+                            'url' => base_url(),
+                            'name' => $this->upload->data()['file_name'],
                             'latitude' => $_POST['lat'],
                             'longitude' => $_POST['long'],
-                            'description' =>$_POST['description']
+                            'description' =>$_POST['description'],
+                            'user_id' => $this->ion_auth->get_user_id()
                         );
 
                         $this->db->insert('images', $data);

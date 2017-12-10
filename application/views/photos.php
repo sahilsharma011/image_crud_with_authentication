@@ -31,9 +31,14 @@
 <body>
 	<?php $this->load->view('template/nav.php'); ?>
 	<div>
-        <?php $this->load->library('session'); ?>
+        <?php $this->load->library('session');?>
+
         <input type="hidden" value="<?php echo $this->session->userdata['user_id']?>" name="user_id">
-		<a href='<?php echo site_url('images/imageWithTitle')?>'>Upload photos</a> | 
+        <?php
+        if ($this->ion_auth->is_admin()){
+            echo '<a href='.site_url('images/imageWithTitle').'>Upload photos</a> |';
+        }
+        ?>
 		<a href='<?php echo site_url('images/gallery')?>'>View photos</a>
 	</div>
 	<div style='height:20px;'></div>  
