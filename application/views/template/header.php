@@ -29,6 +29,7 @@
 			});
 		});
 		function submitForm(position){
+
 			var file_data = $('#file').prop('files')[0];
 			var form_data = new FormData();
 			var description = $('#description').val();

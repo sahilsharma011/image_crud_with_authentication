@@ -102,8 +102,8 @@ class Images extends CI_Controller
         $config['max_filename'] = '255';
         $config['encrypt_name'] = TRUE;
         $config['max_size'] = '1024'; //1 MB
-        var_dump($_FILES);
-        var_dump($_GET);
+        
+        //var_dump($_POST);
 
         if (isset($_FILES['file']['name'])) {
             if (0 < $_FILES['file']['error']) {
@@ -120,9 +120,9 @@ class Images extends CI_Controller
                         $data = array(
                             'url' => 'blast',
                             'name' => $_FILES['file']['name'],
-                            'latitude' => $_FILES['file']['lat'],
-                            'longitude' => $_FILES['file']['long'],
-                            'description' =>$_FILES['file']['description']
+                            'latitude' => $_POST['lat'],
+                            'longitude' => $_POST['long'],
+                            'description' =>$_POST['description']
                         );
 
                         $this->db->insert('images', $data);
