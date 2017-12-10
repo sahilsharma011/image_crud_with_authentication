@@ -27,17 +27,13 @@ CREATE TABLE `images` (
   `url` varchar(250) NOT NULL,
   `name` varchar(250) DEFAULT NULL,
   `priority` int(11) DEFAULT NULL,
-  `latitude` int(11) DEFAULT NULL,
-  `longitude` int(11) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-INSERT INTO `images` (`id`, `user_id`, `url`, `name`, `priority`, `latitude`, `longitude`) VALUES
-  (209,	0,	'http://localhost/admin/',	'9edbe-3fd6-21.jpg',	NULL,	NULL,	NULL),
-  (210,	0,	'http://localhost/admin/',	'aa5ce-5e32-89.jpg',	NULL,	NULL,	NULL),
-  (211,	0,	'http://localhost/admin/',	'b80d7-7628-90.jpg',	NULL,	NULL,	NULL),
-  (212,	0,	'http://localhost/admin/',	'cc405-a48d-88.jpg',	NULL,	NULL,	NULL);
 
 DROP TABLE IF EXISTS `login_attempts`;
 CREATE TABLE `login_attempts` (
@@ -72,8 +68,8 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-  (1,	'127.0.0.1',	'administrator',	'$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',	'',	'admin@admin.com',	'',	'arGBQuEBMhjF13h7WJX1F.8281442121b3ba6aca',	1510984531,	NULL,	1268889823,	1511010665,	1,	'Admin',	'istrator',	'ADMIN',	'0'),
-  (2,	'::1',	'wagish@wagish.com',	'$2y$08$6/7VZHmVy54ogZsxrFPHYe8cCfNAF9a62juq85PXDVLltQIOf3d5u',	NULL,	'wagish@wagish.com',	NULL,	'F.BO95.vnGk4tIs-TpazXebc6dacd436dc06d139',	1511008124,	NULL,	1510988582,	1511010721,	1,	'Wagish',	'Sharma',	'greedge',	'9971014502');
+  (1,	'127.0.0.1',	'administrator',	'$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36',	'',	'admin@admin.com',	'',	'arGBQuEBMhjF13h7WJX1F.8281442121b3ba6aca',	1510984531,	NULL,	1268889823,	1512844186,	1,	'Admin',	'istrator',	'ADMIN',	'0'),
+  (2,	'::1',	'wagish@wagish.com',	'$2y$08$6/7VZHmVy54ogZsxrFPHYe8cCfNAF9a62juq85PXDVLltQIOf3d5u',	NULL,	'wagish@wagish.com',	NULL,	'F.BO95.vnGk4tIs-TpazXebc6dacd436dc06d139',	1511008124,	NULL,	1510988582,	1512886236,	1,	'Wagish',	'Sharma',	'greedge',	'9971014502');
 
 DROP TABLE IF EXISTS `users_groups`;
 CREATE TABLE `users_groups` (
@@ -93,4 +89,4 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
   (2,	1,	2),
   (3,	2,	2);
 
--- 2017-12-09 08:43:19
+-- 2017-12-10 07:41:34
