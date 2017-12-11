@@ -289,7 +289,7 @@ class Image_CRUD {
 		
 		if (!empty($upload_response)) {
 			$ci = &get_instance();
-			$ci->load->library('image_moo');
+			$ci->load->library('Image_moo');
 			
 			$filename = $upload_response->name;
 			
