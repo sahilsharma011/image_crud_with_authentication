@@ -13,7 +13,7 @@ class Images extends CI_Controller
 
         $this->load->helper('url');
 
-        $this->load->library('image_CRUD');
+        $this->load->library('Image_CRUD');
         $this->load->library('ion_auth');
         $this->load->library('upload');
         $this->load->library('Image_moo');
