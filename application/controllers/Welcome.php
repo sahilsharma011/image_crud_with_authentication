@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->library('ion_auth');
-		$this->load->library('image_CRUD');
+		$this->load->library('Image_CRUD');
 		
 	}
 
