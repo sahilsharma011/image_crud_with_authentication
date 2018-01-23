@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://34.227.115.164/image_crud_with_authentication/';
+$config['base_url'] = 'http://13.126.252.52/image_crud_with_authentication/';
 
 /*
 |--------------------------------------------------------------------------
